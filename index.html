@@ -26,9 +26,16 @@
 </header>
 
 <body>
+    <div class="selFile">
+        <label for="myfile" hidden="hidden">Select a file:</label>
+        <input type="file" id="myfile" name="myfile" accept=".txt" hidden="hidden">
+    </div>
+    <div class="selFileFake">
+        <button id="selLogFilebtn">Select Log File</button>
+        <span id="realText">No file chosen, yet!</span>
+    </div>
 
-
-
+    <script src="log-analyzer.js"></script>
 </body>
 
 </html>

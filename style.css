@@ -3,14 +3,19 @@
   font-family: Arial, Helvetica, sans-serif;
   background-color: #1c1d1f;
   color: white;
-  width: 100vw;
-  margin: 0;
   padding: 0;
+  margin: 0;
+
+  box-sizing: border-box;
 }
 
 header {
   border-bottom: 5px solid white;
   margin: 0 auto;
+  width: 100%;
+}
+body {
+  width: 100%;
 }
 
 a {
@@ -40,4 +45,28 @@ a {
 .header a:hover {
   color: #008fff;
   font-size: 25px;
+}
+
+#selLogFilebtn {
+  padding: 10px;
+  color: white;
+  background-color: #008fff;
+  border: 1px solid #000;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 500ms all;
+}
+
+#selLogFilebtn:hover {
+  background-color: #005291;
+}
+#realText {
+  margin-left: 10px;
+  font-family: sans-serif;
+  color: #aaa;
+}
+
+.selFileFake {
+  text-align: center;
+  margin-top: 10px;
 }
