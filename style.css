@@ -70,3 +70,13 @@ a {
   text-align: center;
   margin-top: 10px;
 }
+
+.counter-text {
+  margin-top: 5px;
+  text-align: center;
+  display: block;
+}
+
+.counter-text p {
+  margin: 2px;
+}
