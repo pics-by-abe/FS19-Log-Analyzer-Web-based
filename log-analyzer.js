@@ -3,9 +3,6 @@ const realFileBtn = document.getElementById("myfile");
 const customBtn = document.getElementById("selLogFilebtn");
 const customTxt = document.getElementById("realText");
 
-const fs = require("fs");
-
-
 customBtn.addEventListener("click", function() {
   realFileBtn.click();
 
@@ -25,18 +22,36 @@ realFileBtn.addEventListener("change", function() {
 
 
 
+document.getElementById("myfile").addEventListener('change', readFileAsString)
+function readFileAsString() 
+{
+    var files = this.files;
+    if (files.length === 0) {
+        console.log('No file is selected');
+        return;
+    }
 
-try {
-  // read contents of the file
-  const data = fs.readFileSync('file.txt', 'UTF-8');
+    var reader = new FileReader();
+    reader.onload=function(){ 
+      /*document.getElementById('disLogFile') 
+              .textContent=reader.result; 
+      */
 
-  // split the contents by new line
-  const lines = data.split(/\r?\n/);
 
-  // print all lines
-  lines.forEach((line) => {
-      console.log(line);
-  });
-} catch (err) {
-  console.error(err);
+
+      var lines = this.result.split('\n');
+      for(var line = 0; line < lines.length; line++)
+      {
+        console.log(lines[line]);
+        document.getElementById('disLogFile').innerHTML += (lines[line] + "<br>");
+      } 
+
+     
+              
+
+
+    } 
+
+    reader.readAsText(this.files[0]);
+
 }
