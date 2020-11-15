@@ -13,7 +13,7 @@
 <header>
     <div class="header">
         <p>
-        <h1>FS 19 Log Analyzer</h1>
+        <h1 class="heading">FS 19 Log Analyzer</h1>
         <br>
         <span id="right-align">
             <a href="/index.html">Analyzer</a>
@@ -30,18 +30,18 @@
         <label for="myfile" hidden="hidden">Select a file:</label>
         <input type="file" id="myfile" name="myfile" accept=".txt" hidden="hidden">
     </div>
-    <div class=" selFileFake">
-        <button id="selLogFilebtn">Select Log File</button>
+    <div class="selFileFake">
+        <button id="selLogFilebtn">Select Log File</button><br>
         <span id="realText">No file chosen, yet!</span>
     </div>
 
     <div class="counter-text">
-        <p>Errors: <span id="Errorscounter"></span></p>
-        <p>Warnings: <span id="Warningscounter"></span></p>
-        <p>Lua call stacks: <span id="LuaCallStacksCounter"></span></p>
-        <p>Lua methods: <span id="LuaMethodsCounter"></span></p>
-        <p>Available Mods: <span id="AvailableModsCounter"></span></p>
-        <p>Active mods: <span id="ActiveModsCounter"></span></p>
+        <p>Errors: <span id="Errorscounter">0</span></p>
+        <p>Warnings: <span id="Warningscounter">0</span></p>
+        <p>Lua call stacks: <span id="LuaCallStacksCounter">0</span></p>
+        <p>Lua methods: <span id="LuaMethodsCounter">0</span></p>
+        <p>Available Mods: <span id="AvailableModsCounter">0</span></p>
+        <p>Active mods: <span id="ActiveModsCounter">0</span></p>
     </div>
 
     <div class="displayLogFile">

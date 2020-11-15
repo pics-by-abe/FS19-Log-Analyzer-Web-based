@@ -10,7 +10,7 @@
 }
 
 header {
-  border-bottom: 5px solid white;
+  border-bottom: 5px solid #f2f2f2;
   margin: 0 auto;
   width: 100%;
 }
@@ -20,7 +20,7 @@ body {
 
 a {
   text-decoration: none;
-  color: white;
+  color: #f2f2f2;
 }
 
 /* Specific Style*/
@@ -34,7 +34,7 @@ a {
 
 .header h1 {
   font-size: 50px;
-  text-decoration: underline white 2px;
+  text-decoration: underline #f2f2f2 2px;
 }
 .header a {
   margin: 10vw;
@@ -43,12 +43,12 @@ a {
 }
 
 .header a:hover {
-  color: #008fff;
-  font-size: 25px;
+  color: #005291;
 }
 
 #selLogFilebtn {
   padding: 10px;
+  margin-bottom: 10px;
   color: white;
   background-color: #008fff;
   border: 1px solid #000;
@@ -58,12 +58,13 @@ a {
 }
 
 #selLogFilebtn:hover {
-  background-color: #005291;
+  background-color: #0369b8;
+  transform: scale(1.2, 1.2);
 }
 #realText {
   margin-left: 10px;
   font-family: sans-serif;
-  color: #aaa;
+  color: #f2f2f2;
 }
 
 .selFileFake {
@@ -72,11 +73,15 @@ a {
 }
 
 .counter-text {
-  margin-top: 5px;
-  text-align: center;
-  display: block;
+  margin-top: 20px;
+  transform: translateX(-50%);
+  text-align: end;
 }
 
 .counter-text p {
-  margin: 2px;
+  margin: 10px;
+}
+
+.counter-text p span {
+  margin-left: 1vw;
 }
