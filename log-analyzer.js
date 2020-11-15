@@ -3,6 +3,10 @@ const realFileBtn = document.getElementById("myfile");
 const customBtn = document.getElementById("selLogFilebtn");
 const customTxt = document.getElementById("realText");
 
+
+
+
+
 customBtn.addEventListener("click", function() {
   realFileBtn.click();
 
@@ -44,6 +48,14 @@ function readFileAsString()
       {
         console.log(lines[line]);
         document.getElementById('disLogFile').innerHTML += (lines[line] + "<br>");
+
+        if (lines[line].includes("Error: "))
+        {
+          var errorcounter = 0;
+          errorcounter + 1;
+          document.getElementById("Errorscounter").innerHTML += errorcounter;
+        }
+
       } 
 
      
