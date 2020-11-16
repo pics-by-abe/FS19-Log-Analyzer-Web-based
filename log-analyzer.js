@@ -68,7 +68,7 @@ function readFileAsString()
         document.getElementById('ActiveModsCounter').innerHTML = loadedMods;
 
         //document.getElementById('disLogFile').innerHTML = lines.toString().replace('\r\n', '<br>');
-        document.getElementById('disLogFile').innerHTML = this.result;
+        document.getElementById('disLogFile').innerHTML = this.result.replace(/\r\n/g, '<br>');
 
     }
     reader.readAsText(this.files[0]);
