@@ -21,8 +21,12 @@ document.getElementById("myfile").addEventListener('change', readFileAsString)
 function readFileAsString() 
 {
     var files = this.files,
-        errorcounter = 0,
-        warningcounter = 0;
+        errorCounter = 0,
+        warningCounter = 0,
+        luaCallStack = 0,
+        luaMethod = 0,
+        availableMods = 0,
+        loadedMods = 0;
 
     if (files.length === 0) {
         console.log('No file is selected');
@@ -30,30 +34,42 @@ function readFileAsString()
     }
 
     var reader = new FileReader();
-    reader.onload=function(){ 
-        /*document.getElementById('disLogFile')
-              .textContent=reader.result; 
-        */
+    reader.onload=function(){
         var lines = this.result.split('\r\n');
         console.log(lines.length);
         console.log(lines[0]);
         for (var i = 0; i < lines.length; i++) {
-        //console.log(lines[i]);
         //document.getElementById('disLogFile').innerHTML += (lines[line] + "<br>");
             if (lines[i].includes('Error: ')) {
-                errorcounter++;
-                //document.getElementById("Errorscounter").innerHTML += errorcounter;
+                errorCounter++;
             }
             if (lines[i].includes('Warning: ')) {
-                console.log('Found warning');
-                warningcounter++;
+                warningCounter++;
             }
+            if (lines[i].includes('LUA call stack')) {
+                luaCallStack++;
+            }
+            if (lines[i].includes('LUA method ')) {
+                luaMethod++;
+            }
+            if (lines[i].includes('Available mod: ')) {
+                availableMods++;
+            }
+            if (lines[i].includes('Load mod: ')) {
+                loadedMods++;
+            }
+
         }
-    document.getElementById('Errorscounter').innerHTML = errorcounter;
-    document.getElementById('Warningscounter').innerHTML = warningcounter;
-    console.log('Gefundene Fehler=' + errorcounter);
-    console.log('Gefundene Warning=' + warningcounter);
+        document.getElementById('Errorscounter').innerHTML = errorCounter;
+        document.getElementById('Warningscounter').innerHTML = warningCounter;
+        document.getElementById('LuaMethodsCounter').innerHTML = luaCallStack;
+        document.getElementById('LuaCallStacksCounter').innerHTML = luaMethod;
+        document.getElementById('AvailableModsCounter').innerHTML = availableMods;
+        document.getElementById('ActiveModsCounter').innerHTML = loadedMods;
+
+        //document.getElementById('disLogFile').innerHTML = lines.toString().replace('\r\n', '<br>');
+        document.getElementById('disLogFile').innerHTML = this.result;
+
     }
     reader.readAsText(this.files[0]);
-
 }
