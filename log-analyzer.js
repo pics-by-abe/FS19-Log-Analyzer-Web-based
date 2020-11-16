@@ -35,11 +35,12 @@ function readFileAsString()
 
     var reader = new FileReader();
     reader.onload=function(){
+        document.getElementById("progess").innerHTML = 'Starting analyse logfile';
+
         var lines = this.result.split('\r\n');
         console.log(lines.length);
         console.log(lines[0]);
         for (var i = 0; i < lines.length; i++) {
-        //document.getElementById('disLogFile').innerHTML += (lines[line] + "<br>");
             if (lines[i].includes('Error: ')) {
                 errorCounter++;
             }
@@ -67,9 +68,8 @@ function readFileAsString()
         document.getElementById('AvailableModsCounter').innerHTML = availableMods;
         document.getElementById('ActiveModsCounter').innerHTML = loadedMods;
 
-        //document.getElementById('disLogFile').innerHTML = lines.toString().replace('\r\n', '<br>');
+        document.getElementById("progess").innerHTML = 'Finished';
         document.getElementById('disLogFile').innerHTML = this.result.replace(/\r\n/g, '<br>');
-
     }
     reader.readAsText(this.files[0]);
 }
