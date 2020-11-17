@@ -21,6 +21,10 @@ document.getElementById("myfile").addEventListener('change', readFileAsString)
 function readFileAsString() 
 {
     var files = this.files,
+        logfileOutput = [],
+        logfileOutputString = '',
+        errorLines = [],
+        errorLinesString = '',
         errorCounter = 0,
         warningCounter = 0,
         luaCallStack = 0,
@@ -38,11 +42,19 @@ function readFileAsString()
         document.getElementById("progess").innerHTML = 'Starting analyse logfile';
 
         var lines = this.result.split('\r\n');
-        console.log(lines.length);
-        console.log(lines[0]);
         for (var i = 0; i < lines.length; i++) {
-            if (lines[i].includes('Error: ')) {
+            if (lines[i].includes('Error: Failed')) {
                 errorCounter++;
+                //errorLines.push(lines[i+1], '<br>', lines[i], '<br>');
+                errorLinesString = errorLinesString + lines[i+1] + '<br>' + lines[i] + '<br>';
+            } else if (lines[i].includes('Error: Missing')) {
+                errorCounter++;
+                //errorLines.push(lines[i-1], '<br>', lines[i], '<br>');
+                errorLinesString = errorLinesString + lines[i-1] + '<br>' + lines[i] + '<br>';
+            } else if (lines[i].includes('Error: ')){
+                errorCounter++
+                //errorLines.push(lines[i], '<br>');
+                errorLinesString = errorLinesString + lines[i] + '<br>';
             }
             if (lines[i].includes('Warning: ')) {
                 warningCounter++;
@@ -59,6 +71,8 @@ function readFileAsString()
             if (lines[i].includes('Load mod: ')) {
                 loadedMods++;
             }
+            logfileOutput.push(lines[i] + '<br>');
+            logfileOutputString = logfileOutputString + lines[i] + '<br>';
 
         }
         document.getElementById('Errorscounter').innerHTML = errorCounter;
@@ -69,7 +83,12 @@ function readFileAsString()
         document.getElementById('ActiveModsCounter').innerHTML = loadedMods;
 
         document.getElementById("progess").innerHTML = 'Finished';
-        document.getElementById('disLogFile').innerHTML = this.result.replace(/\r\n/g, '<br>');
+        //document.getElementById('disLogFile').innerHTML = this.result.replace(/\r\n/g, '<br>');
+        document.getElementById('errorLines').innerHTML = errorLinesString;
+        //document.getElementById('errorLines').innerHTML = errorLines;
+        document.getElementById('disLogFile').innerHTML = logfileOutputString;
+        //document.getElementById('disLogFile').innerHTML = logfileOutput;
+        console.log(errorLines);
     }
     reader.readAsText(this.files[0]);
 }
