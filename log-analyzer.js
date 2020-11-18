@@ -32,10 +32,6 @@ function readFileAsString()
         availableMods = 0,
         loadedMods = 0;
 
-        errorcounter = 0,
-        warningcounter = 0;
-
-
     if (files.length === 0) {
         console.log('No file is selected');
         return;
@@ -93,31 +89,6 @@ function readFileAsString()
         document.getElementById('disLogFile').innerHTML = logfileOutputString;
         //document.getElementById('disLogFile').innerHTML = logfileOutput;
         console.log(errorLines);
-
-    reader.onload=function(){ 
-        /*document.getElementById('disLogFile')
-              .textContent=reader.result; 
-        */
-        var lines = this.result.split('\r\n');
-        console.log(lines.length);
-        console.log(lines[0]);
-        for (var i = 0; i < lines.length; i++) {
-        //console.log(lines[i]);
-        //document.getElementById('disLogFile').innerHTML += (lines[line] + "<br>");
-            if (lines[i].includes('Error: ')) {
-                errorcounter++;
-                //document.getElementById("Errorscounter").innerHTML += errorcounter;
-            }
-            if (lines[i].includes('Warning: ')) {
-                console.log('Found warning');
-                warningcounter++;
-            }
-        }
-    document.getElementById('Errorscounter').innerHTML = errorcounter;
-    document.getElementById('Warningscounter').innerHTML = warningcounter;
-    console.log('Gefundene Fehler=' + errorcounter);
-    console.log('Gefundene Warning=' + warningcounter);
-
     }
     reader.readAsText(this.files[0]);
 }
