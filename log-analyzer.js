@@ -21,7 +21,6 @@ document.getElementById("myfile").addEventListener('change', readFileAsString)
 function readFileAsString() 
 {
     var files = this.files,
-<<<<<<< HEAD
         logfileOutput = [],
         logfileOutputString = '',
         errorLines = [],
@@ -32,10 +31,10 @@ function readFileAsString()
         luaMethod = 0,
         availableMods = 0,
         loadedMods = 0;
-=======
+
         errorcounter = 0,
         warningcounter = 0;
->>>>>>> c02fa563c23db52111501c5f5239f287ab7838ef
+
 
     if (files.length === 0) {
         console.log('No file is selected');
@@ -43,7 +42,6 @@ function readFileAsString()
     }
 
     var reader = new FileReader();
-<<<<<<< HEAD
     reader.onload=function(){
         document.getElementById("progess").innerHTML = 'Starting analyse logfile';
 
@@ -95,7 +93,7 @@ function readFileAsString()
         document.getElementById('disLogFile').innerHTML = logfileOutputString;
         //document.getElementById('disLogFile').innerHTML = logfileOutput;
         console.log(errorLines);
-=======
+
     reader.onload=function(){ 
         /*document.getElementById('disLogFile')
               .textContent=reader.result; 
@@ -119,7 +117,7 @@ function readFileAsString()
     document.getElementById('Warningscounter').innerHTML = warningcounter;
     console.log('Gefundene Fehler=' + errorcounter);
     console.log('Gefundene Warning=' + warningcounter);
->>>>>>> c02fa563c23db52111501c5f5239f287ab7838ef
+
     }
     reader.readAsText(this.files[0]);
 }
