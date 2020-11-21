@@ -12,16 +12,19 @@
 
 <header>
     <div class="header">
-        <p>
         <h1 class="heading">FS 19 Log Analyzer</h1>
-        <br>
         <span id="right-align">
-            <a href="/index.html">Analyzer</a>
-            <a target="_blank" href="https://github.com/pics-by-abe/FS19-Log-Analyzer-Web-based/">Github</a>
-            <a target="_blank" href="https://github.com/pics-by-abe/FS19-Log-Analyzer/releases/">Desktop App</a>
+            <a target="_blank" href="./index.html">
+                <button class="nav-buttons">Analyzer</button>
+            </a>
+            <a target="_blank" href="https://github.com/pics-by-abe/FS19-Log-Analyzer-Web-based/">
+                <button class="nav-buttons">Github</button>
+            </a>
+            <a target="_blank" href="https://github.com/pics-by-abe/FS19-Log-Analyzer/releases/">
+                <button class="nav-buttons">Desktop App</button>
+            </a>
         </span>
 
-        </p>
     </div>
 </header>
 
@@ -46,12 +49,28 @@
     </div>
 
     <div class="displayLogFile">
-        <p id="errorLines"></p>
-        <p id="disLogFile"></p>
-
+        <div class="errors">
+            <h3 id="heading-err"></h3>
+            <p id="errorLines"></p>
+        </div>
+        <div class="log">
+            <h3 id="heading-log"></h3>
+            <p id="disLogFile"></p>
+        </div>
     </div>
 
     <script src="log-analyzer.js"></script>
 </body>
+
+<footer>
+    <div class="fotter">
+        <p>Made by <a href="https://github.com/pics-by-abe/">pics-by-abe</a> and <a
+                href="https://github.com/clanfreak1988">Clanfreak1988</a></p>
+    </div>
+
+
+
+</footer>
+
 
 </html>

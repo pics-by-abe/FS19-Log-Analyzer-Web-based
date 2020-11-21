@@ -81,7 +81,8 @@ function readFileAsString()
         document.getElementById('LuaCallStacksCounter').innerHTML = luaMethod;
         document.getElementById('AvailableModsCounter').innerHTML = availableMods;
         document.getElementById('ActiveModsCounter').innerHTML = loadedMods;
-
+        document.getElementById('heading-err').innerHTML = "ERRORS";
+        document.getElementById('heading-log').innerHTML = "Log";
         document.getElementById("progess").innerHTML = 'Finished';
         //document.getElementById('disLogFile').innerHTML = this.result.replace(/\r\n/g, '<br>');
         document.getElementById('errorLines').innerHTML = errorLinesString;
