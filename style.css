@@ -23,8 +23,8 @@ header {
   width: 100%;
 }
 .header span a {
-  margin: 10vw;
   font-size: 20px;
+  width: auto;
 }
 .header h1 {
   text-align: center;
