@@ -173,3 +173,12 @@ body::-webkit-scrollbar-thumb {
   background-color: #6d6d6d; /* color of the scroll thumb */
   border: none; /* creates padding around scroll thumb */
 }
+
+.semicritical {
+  color: orange;
+  font-weight: 800;
+}
+.critical {
+  color: red;
+  font-weight: 900;
+}

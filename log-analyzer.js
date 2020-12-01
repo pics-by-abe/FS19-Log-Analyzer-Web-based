@@ -37,6 +37,20 @@ function readFileAsString()
         return;
     }
 
+    /** Remove class Lists from items*/
+
+    /** Available Mods */
+    var availableMods_span = document.getElementById("AvailableModsCounter");
+    availableMods_span.classList.remove("critical");
+    availableMods_span.classList.remove("semicritical");
+
+    /** Active Mods */
+    var availableMods_span = document.getElementById("ActiveModsCounter");
+    availableMods_span.classList.remove("critical");
+    availableMods_span.classList.remove("semicritical");
+
+
+
     var reader = new FileReader();
     reader.onload=function(){
         document.getElementById("progess").innerHTML = 'Starting analyse logfile';
@@ -67,9 +81,30 @@ function readFileAsString()
             }
             if (lines[i].includes('Available mod: ')) {
                 availableMods++;
+                if (availableMods >= 500)
+                {
+                    var element = document.getElementById("AvailableModsCounter");
+                    element.classList.add("critical");
+                }
+                if (availableMods >= 250)
+                {
+                    var element = document.getElementById("AvailableModsCounter");
+                    element.classList.add("semicritical");
+                }
+
             }
             if (lines[i].includes('Load mod: ')) {
                 loadedMods++;
+                if (loadedMods >= 500)
+                {
+                    var element = document.getElementById("ActiveModsCounter");
+                    element.classList.add("critical");
+                }
+                if (loadedMods >= 250)
+                {
+                    var element = document.getElementById("ActiveModsCounter");
+                    element.classList.add("semicritical");
+                }
             }
             logfileOutput.push(lines[i] + '<br>');
             logfileOutputString = logfileOutputString + lines[i] + '<br>';
