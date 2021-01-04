@@ -112,13 +112,13 @@ function readFileAsString()
         }
         document.getElementById('Errorscounter').innerHTML = errorCounter;
         document.getElementById('Warningscounter').innerHTML = warningCounter;
-        document.getElementById('LuaMethodsCounter').innerHTML = luaCallStack;
-        document.getElementById('LuaCallStacksCounter').innerHTML = luaMethod;
+        document.getElementById('LuaMethodsCounter').innerHTML = luaMethod;
+        document.getElementById('LuaCallStacksCounter').innerHTML = luaCallStack;
         document.getElementById('AvailableModsCounter').innerHTML = availableMods;
         document.getElementById('ActiveModsCounter').innerHTML = loadedMods;
         document.getElementById('heading-err').innerHTML = "ERRORS";
         document.getElementById('heading-log').innerHTML = "Log";
-        document.getElementById("progess").innerHTML = 'Finished';
+        document.getElementById('progess').innerHTML = 'Finished';
         //document.getElementById('disLogFile').innerHTML = this.result.replace(/\r\n/g, '<br>');
         document.getElementById('errorLines').innerHTML = errorLinesString;
         //document.getElementById('errorLines').innerHTML = errorLines;
